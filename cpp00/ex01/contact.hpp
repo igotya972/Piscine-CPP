@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:25:23 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/04 03:15:16 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/05 18:58:57 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <limits>
 
 class Contact
 {
