@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:25:33 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/08 19:52:40 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/08 22:01:35 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,18 @@
 
 	#include "../include/phonebook.hpp"
 #endif
-int main (int ac, char **av)
+int main ()
 {
-	(void) ac;
-	(void) av;
 	//Phonebook phonebook;
 	Contact		contact;
-	//int			Ages;
 	std::string first_name;
 	std::string phone_number;
+	std::string nickname;
+	std::string darkest_secret;
 	
-	// std::cout << "Enter your age: ";
-	// std::cin >> Ages;
 	contact.set_first_name(first_name);
 	contact.set_phone_number(phone_number);
+	contact.set_nickname(nickname);
+	contact.set_darkest_secret(darkest_secret);
 	return (0);
 }
