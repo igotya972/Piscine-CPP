@@ -1,6 +1,6 @@
 SRCS	=	$(shell find ./ -name '*.cpp')
 
-OBJ_DIR = OBJS
+OBJ_DIR = .objs
 
 OBJS	=	$(addprefix $(OBJ_DIR)/,$(SRCS:.cpp=.o))
 

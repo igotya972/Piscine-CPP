@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 19:03:37 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/06 17:30:08 by dferjul          ###   ########.fr       */
+/*   Created: 2024/08/04 03:15:54 by dferjul           #+#    #+#             */
+/*   Updated: 2024/08/08 19:35:11 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
 #include "contact.hpp"
 
-Contact::Contact(){}
-Contact::~Contact(){}
-
-void Contact::set_first_name(std::string first_name)
+class Phonebook
 {
-	this->first_name = first_name;
-}
+	private:
+		Contact contacts[8];
+		int nb_contacts;
+
+	public:
+		Phonebook();
+		void add_contact();
+		void search_contact();
+		void display_contact(int index);
+};
+
+#endif
