@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:25:23 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/08 19:36:24 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/09 03:05:29 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 #include <string>
 #include <sstream>
 #include <limits>
+#include <cctype>
+#include <algorithm>
+#include <iomanip>
 
 class Contact
 {
@@ -40,7 +43,6 @@ class Contact
 		std::string get_nickname();
 		std::string get_phone_number();
 		std::string get_darkest_secret();
-		void display_contact();
 };
 
 #endif

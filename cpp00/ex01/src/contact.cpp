@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 19:03:37 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/08 22:18:57 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/09 02:10:39 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,35 +38,35 @@ void Contact::set_first_name(std::string first_name)
 
 void Contact::set_phone_number(std::string phone_number)
 {
-	this->phone_number = phone_number;
 	while (1)
 	{
+		
+		std::cout << "Enter your Number: ";
+		std::getline(std::cin, phone_number);
+		bool all_digits = true;
+		for (size_t i = 0; i < phone_number.length(); ++i)
+        {
+            if (std::isdigit(phone_number[i]))
+            {
+                all_digits += phone_number[i]; // Ajoutez uniquement les chiffres
+            }
+			else if (!std::isdigit(phone_number[i]))
+			{
+				all_digits = false;
+				break;
+			}
+        }
 		if (phone_number.empty())
-		{
-			std::cout << "Enter your Number: ";
-			std::cin >> phone_number;
-		}
-		else if ((phone_number[1] != '6' && phone_number[1] != '7') || phone_number[0] != '0' || phone_number[10] || !phone_number[9])
-		{
-			std::cout << "Invalid phone number (ex: 06********, 07********). Try again: " << std::endl;
-			std::cout << "Enter your Number: ";
-			std::cin >> phone_number;
-		}
+			std::cout << "The phone number cannot be empty. Try again." << std::endl;
+		// Vérif caractères chiffres
+		else if (!all_digits)
+			std::cout << "Invalid input. All characters must be numeric. Try again." << std::endl;
 		else
 		{
-			for (int i = 0; phone_number[i], i++;)
-			{
-				if (std::isdigit(phone_number[i]) != 0)
-				{
-					std::cout << "Invalid input. Character is not numeric. Try again: " << std::endl;
-					std::cout << "Enter your Number: ";
-					std::cin >> phone_number;
-				}
-			}
-			std::cout << "Number: ";
-			std::cout << phone_number << std::endl;
+			this->phone_number = all_digits;
+			std::cout << "Number: " << this->phone_number << std::endl;
 			break;
-		}
+		}	
 	}
 }
 
@@ -114,7 +114,6 @@ void Contact::set_last_name(std::string last_name)
 
 void Contact::set_darkest_secret(std::string darkest_secret)
 {
-	this->darkest_secret = darkest_secret;
 	while (1)
 	{
 		if (darkest_secret.empty())
@@ -122,7 +121,7 @@ void Contact::set_darkest_secret(std::string darkest_secret)
 			std::cout << "Enter your darkest_secret: ";
 			std::getline(std::cin, darkest_secret);
 		}
-		if (!darkest_secret[7])
+		else if (!darkest_secret[7])
 		{
 			std::cout << "Invalid darkest_secret: requires minimum 8 characters. Try again: " << std::endl;
 			std::cout << "Enter your darkest_secret: ";
@@ -131,7 +130,8 @@ void Contact::set_darkest_secret(std::string darkest_secret)
 		else
 		{
 			std::cout << "darkest_secret: ";
-			std::cout << darkest_secret << std::endl;
+			this->darkest_secret = darkest_secret;
+			std::cout << this->darkest_secret << std::endl;
 			break;
 		}
 	}

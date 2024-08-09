@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 03:15:54 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/08 19:35:11 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/09 03:05:42 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class Phonebook
 
 	public:
 		Phonebook();
+		~Phonebook();
 		void add_contact();
 		void search_contact();
-		void display_contact(int index);
 };
 
 #endif
