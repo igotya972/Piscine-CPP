@@ -57,10 +57,14 @@ void Phonebook::search_contact()
 		{
 			if (index >= 0 && index < 8)
 			{
-				std::cout << "index: " << index << std::endl;
-				std::cout << index << ": ";
-				contacts[index].display_contact();
-				//break ;
+				std::cout << RED << "index: " << index << std::endl;
+				std::cout << YELLOW << "First Name: " << RED << contacts[index].get_first_name() << std::endl;
+				std::cout << YELLOW << "Last Name: " << RED << contacts[index].get_last_name() << std::endl;
+				std::cout << YELLOW << "Nickname: " << RED << contacts[index].get_nickname() << std::endl;
+				std::cout << YELLOW << "Phone Number: " << RED << contacts[index].get_phone_number() << std::endl;
+				std::cout << YELLOW << "Darkest Secret: " << RED << contacts[index].get_darkest_secret().substr(0, 3) << "***" << std::endl;
+				std::cout << "";
+				break ;
 			}
 			else if (index == 101)
 			{
@@ -77,8 +81,6 @@ void Phonebook::search_contact()
 		else
 		{
 			std::cerr << RED << "Invalid input: requires a number. Try again: " << RESET << std::endl;
-			// std::cin.clear();
-			// std::cin.ignore();
 		}
 	}
 }

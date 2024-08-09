@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 19:03:37 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/09 20:48:14 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/09 22:25:51 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,8 +173,8 @@ void Contact::set_darkest_secret(std::string darkest_secret)
 		{
 			std::cout << RED;
 			std::cout << "Invalid inputs: requires minimum 8 characters. Try again: " << std::endl;
-			darkest_secret.clear();
 			std::cout << RESET;
+			darkest_secret.clear();
 		}
 		else
 		{
@@ -194,4 +194,20 @@ void Contact::display_contact()
 	std::cout << YELLOW << std::setw(10) << "Last Name: " << RED << last_name.substr(0, 9) << "." << RESET << " | ";
 	std::cout << YELLOW << std::setw(10) << "Nickname: " << RED << nickname.substr(0, 9) << "." << RESET << std::endl;
 	std::cout << RESET;
+}
+
+std::string Contact::get_first_name() {
+	return first_name;
+}
+std::string Contact::get_last_name() {
+	return last_name;
+}
+std::string Contact::get_nickname() {
+	return nickname;
+}
+std::string Contact::get_phone_number() {
+	return phone_number;
+}
+std::string Contact::get_darkest_secret() {
+	return darkest_secret;
 }
