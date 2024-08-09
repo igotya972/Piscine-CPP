@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 19:03:37 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/09 02:10:39 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/09 03:08:03 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void Contact::set_phone_number(std::string phone_number)
         {
             if (std::isdigit(phone_number[i]))
             {
-                all_digits += phone_number[i]; // Ajoutez uniquement les chiffres
+                all_digits += phone_number[i];
             }
 			else if (!std::isdigit(phone_number[i]))
 			{
@@ -58,7 +58,6 @@ void Contact::set_phone_number(std::string phone_number)
         }
 		if (phone_number.empty())
 			std::cout << "The phone number cannot be empty. Try again." << std::endl;
-		// Vérif caractères chiffres
 		else if (!all_digits)
 			std::cout << "Invalid input. All characters must be numeric. Try again." << std::endl;
 		else

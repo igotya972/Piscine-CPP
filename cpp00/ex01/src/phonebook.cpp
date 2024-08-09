@@ -14,8 +14,6 @@
 
 Phonebook::Phonebook(){}
 Phonebook::~Phonebook(){}
-// Contact::Contact(){}
-// Contact::~Contact(){}
 
 void Phonebook::add_contact()
 {
@@ -27,15 +25,10 @@ void Phonebook::add_contact()
 	}
 	Contact new_contact;
 	std::string input;
-	//std::cout << "Enter first name: ";
 	new_contact.set_first_name(input);
-	//std::cout << "Enter last name: ";
 	new_contact.set_last_name(input);
-	//std::cout << "Enter nickname: ";
 	new_contact.set_nickname(input);
-	//std::cout << "Enter phone number: ";
 	new_contact.set_phone_number(input);
-	//std::cout << "Enter dark secret: ";
 	new_contact.set_darkest_secret(input);
 	contacts[nb_contacts] = new_contact;
 	nb_contacts++;

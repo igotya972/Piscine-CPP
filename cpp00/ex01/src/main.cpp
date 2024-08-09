@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:25:33 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/09 02:46:28 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/09 03:08:22 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,5 @@ int main ()
 		else
 			std::cout << std::endl << "Command not found" << std::endl;
 	}
-	// contact.set_first_name(first_name);
-	// contact.set_last_name(last_name);
-	// contact.set_nickname(nickname);
-	// contact.set_phone_number(phone_number);
-	// contact.set_darkest_secret(darkest_secret);
 	return (0);
 }
