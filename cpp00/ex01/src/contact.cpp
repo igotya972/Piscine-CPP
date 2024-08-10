@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 19:03:37 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/09 22:25:51 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/10 02:09:04 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,10 +190,18 @@ void Contact::set_darkest_secret(std::string darkest_secret)
 
 void Contact::display_contact()
 {
-	std::cout << YELLOW << std::setw(10) << "First Name: " << RED << first_name.substr(0, 9) << "." << RESET << " | ";
-	std::cout << YELLOW << std::setw(10) << "Last Name: " << RED << last_name.substr(0, 9) << "." << RESET << " | ";
-	std::cout << YELLOW << std::setw(10) << "Nickname: " << RED << nickname.substr(0, 9) << "." << RESET << std::endl;
-	std::cout << RESET;
+	if (first_name.length() >= 9)
+		std::cout << RED << std::setw(9) << first_name.substr(0, 9) << RESET << BLUE << ". | ";
+	else
+		std::cout << RED << std::setw(10) << first_name << RESET << BLUE << " | ";
+	if (last_name.length() >= 9)
+		std::cout << RED << std::setw(9) << last_name.substr(0, 9) << RESET << BLUE << ". | ";
+	else
+		std::cout << RED << std::setw(10) << last_name << RESET << BLUE << " | ";
+	if (nickname.length() >= 9)
+		std::cout << RED << std::setw(9) << nickname.substr(0, 9) << RESET << BLUE << ". | " << std::endl;
+	else
+		std::cout << RED << std::setw(10) << nickname << RESET << BLUE << " | " << std::endl;
 }
 
 std::string Contact::get_first_name() {

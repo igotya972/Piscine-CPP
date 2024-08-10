@@ -6,7 +6,7 @@ OBJS	=	$(addprefix $(OBJ_DIR)/,$(SRCS:.cpp=.o))
 
 CC	=	g++
 
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g -fsanitize=address -fsanitize=leak
 
 RM	=	rm -rf
 

@@ -17,35 +17,43 @@ Phonebook::~Phonebook(){}
 
 void Phonebook::add_contact()
 {
-	if (nb_contacts >= 8)
+	int i = 0;
+	if (nb_contacts >= 3)
 	{
-		for (int i = 1; i < 8; i++)
-		{
-			contacts[i - 1] = contacts[i];
-		}
-		nb_contacts--;
+		i = 0;
+		//i++;
 	}
-	Contact new_contact;
+	else
+	{
+		while (i < 3 && !contacts[i].get_first_name().empty())
+			i++;
+	}
 	std::string input;
-	new_contact.set_first_name(input);
-	new_contact.set_last_name(input);
-	new_contact.set_nickname(input);
-	new_contact.set_phone_number(input);
-	new_contact.set_darkest_secret(input);
-	contacts[nb_contacts] = new_contact;
-	nb_contacts++;
-	std::cout << GREEN;
-	std::cout << "Contact added successfully.\n";
-	std::cout << RESET;
+	contacts[i].set_first_name(input);
+	contacts[i].set_last_name(input);
+	contacts[i].set_nickname(input);
+	contacts[i].set_phone_number(input);
+	contacts[i].set_darkest_secret(input);
+	contacts[nb_contacts] = contacts[i];
+	if (nb_contacts < 3)
+		nb_contacts++;
+	std::cout << GREEN << "Contact added successfully.\n" << RESET;
 }
 
 void Phonebook::search_contact()
 {
 	int			index;
 	std::string	input;
+
+	std::cout << BLUE  << "-| " ;
+	std::cout << std::setw(10) << "First Name |";
+	std::cout << std::setw(10) << "  Last Name |";
+	std::cout << std::setw(10) << "   Nickname |";
+	// << std::setw(10) << "LAST_NAME" << std::setw(10) << "NICKNAME" << RESET;
+	std::cout << std::endl;
 	while (1)
 	{
-		for(int i = 0; i < 8; i++)
+		for(int i = 1; i <= 8; i++)
 		{
 			std::cout << BLUE << i << "| " << RESET;
 			contacts[i].display_contact();
