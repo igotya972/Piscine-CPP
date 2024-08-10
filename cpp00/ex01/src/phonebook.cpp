@@ -50,15 +50,20 @@ void Phonebook::search_contact()
 		{
 			if (index > 0 && index <= 8)
 			{
-				std::cout << RED << "index: " << index << std::endl;
-				std::cout << YELLOW << "First Name: " << RED << contacts[index].get_first_name() << std::endl;
-				std::cout << YELLOW << "Last Name: " << RED << contacts[index].get_last_name() << std::endl;
-				std::cout << YELLOW << "Nickname: " << RED << contacts[index].get_nickname() << std::endl;
-				std::cout << YELLOW << "Phone Number: " << RED << contacts[index].get_phone_number() << std::endl;
-				std::cout << YELLOW << "Darkest Secret: " << RED << contacts[index].get_darkest_secret().substr(0, 3) << "***" << std::endl;
+				if (contacts[index].get_first_name().empty())
+					std::cout << RED << "No contact found" << RESET << std::endl;
+				else
+				{
+					std::cout << RED << "index: " << index << std::endl;
+					std::cout << YELLOW << "First Name: " << RED << contacts[index].get_first_name() << std::endl;
+					std::cout << YELLOW << "Last Name: " << RED << contacts[index].get_last_name() << std::endl;
+					std::cout << YELLOW << "Nickname: " << RED << contacts[index].get_nickname() << std::endl;
+					std::cout << YELLOW << "Phone Number: " << RED << contacts[index].get_phone_number() << std::endl;
+					std::cout << YELLOW << "Darkest Secret: " << RED << contacts[index].get_darkest_secret().substr(0, 3) << "***" << std::endl;
+				}
 				break ;
 			}
-			else if (index == 101)
+			else if (index == 0)
 			{
 				std::cout << RED << "Returning to main menu..." << RESET << std::endl;
 				break;
@@ -84,6 +89,7 @@ void Phonebook::search_contact()
 
 void Phonebook::display_tab()
 {
+	std::cout << MAGENTA << "0 = return to menu" << RESET << std::endl;
 	std::cout << BLUE  << "-| " ;
 	std::cout << std::setw(10) << "First Name |";
 	std::cout << std::setw(10) << "  Last Name |";

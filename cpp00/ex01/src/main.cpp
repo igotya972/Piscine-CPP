@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:25:33 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/09 19:48:29 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/10 23:36:01 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int main ()
 	{
 		std::cout << MAGENTA;
 		std::cout << "Menu:\n";
-		std::cout << "ADD = Ajouter un contact\n";
-		std::cout << "EXIT = Quitter\n";
-		std::cout << "SEARCH = Rechercher un contact\n";
+		std::cout << "ADD = Add a contact\n";
+		std::cout << "EXIT = Leave\n";
+		std::cout << "SEARCH = Search for a contact\n";
 		std::cout << BLUE;
 		std::cout << "Enter a command: ";
 		std::cout << RESET;
@@ -35,7 +35,7 @@ int main ()
 			phonebook.add_contact();
 		else if (input == "SEARCH" || input == "search" || input == "s")
 			phonebook.search_contact();
-		else if (input == "EXIT" || input == "exit" || input == "exit")
+		else if (input == "EXIT" || input == "exit")
 		{
 			std::cout << "Quiting..." << std::endl;
 			exit(EXIT_SUCCESS);
