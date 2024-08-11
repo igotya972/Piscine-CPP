@@ -6,15 +6,14 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:25:33 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/10 23:36:01 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/11 04:16:25 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _PHONEBOOK_H
 #define _PHONEBOOK_H
 
-	#include "../include/phonebook.hpp"
-#endif
+#include "../include/phonebook.hpp"
 
 int main ()
 {
@@ -49,3 +48,5 @@ int main ()
 	}
 	return (0);
 }
+
+#endif

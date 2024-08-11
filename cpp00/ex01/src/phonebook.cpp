@@ -12,7 +12,7 @@
 
 #include "../include/phonebook.hpp"
 
-Phonebook::Phonebook(){}
+Phonebook::Phonebook():nb_contacts(0){}
 Phonebook::~Phonebook(){}
 
 void Phonebook::add_contact()
