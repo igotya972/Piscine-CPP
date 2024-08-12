@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:25:23 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/09 17:28:09 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/11 04:32:20 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <sstream>
 #include <limits>
 #include <cctype>
-#include <algorithm>
 #include <iomanip>
 #include "colors.hpp"
 

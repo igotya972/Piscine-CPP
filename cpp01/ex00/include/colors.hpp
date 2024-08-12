@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   colors.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 02:54:33 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/11 02:54:33 by dferjul          ###   ########.fr       */
+/*   Created: 2024/08/11 17:29:06 by dferjul           #+#    #+#             */
+/*   Updated: 2024/08/11 17:29:06 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Zombie.hpp"
 
-Zombie::Zombie(std::string name)
-{
-	std::string *str = new std::string(name);
-	this->_name = name;
-	std::cout << "Zombie " << str << " is created" << std::endl;
-}
+#ifndef COLORS_HPP
+#define COLORS_HPP
 
-Zombie::~Zombie()
-{
-	std::cout << "Zombie " << str << " is dead" << std::endl;
-}
+#define RESET   "\033[0m"
+#define BLACK   "\033[30m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
 
-void	Zombie::annouce(void)
-{
-	std::cout << this->_name << " : BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-
+#endif

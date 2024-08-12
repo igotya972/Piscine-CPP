@@ -10,3 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/Zombie.hpp"
+
+void	Zombie::randomChump(std::string name)
+{
+	std::cout << name << std::endl;
+	std::cout << "BraiiiiiiinnnzzzZ" << std::endl;
+	std::cout << "Zombie Foo is dead" << std::endl;
+}
