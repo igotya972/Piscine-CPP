@@ -12,9 +12,10 @@
 
 #include "../include/Zombie.hpp"
 
-void	Zombie::randomChump(std::string name)
+void	randomChump(std::string name)
 {
-	std::cout << name << std::endl;
-	std::cout << "BraiiiiiiinnnzzzZ" << std::endl;
-	std::cout << "Zombie Foo is dead" << std::endl;
+	Zombie zombie(name);
+	zombie.annouce();
+	//std::cout << MAGENTA << name << " : BraiiiiiiinnnzzzZ" << RESET << std::endl;
+	//std::cout << RED << "Foo is dead" << RESET << std::endl;
 }

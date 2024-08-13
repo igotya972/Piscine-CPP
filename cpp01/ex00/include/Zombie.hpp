@@ -13,6 +13,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "colors.hpp"
 
 class Zombie
 {
@@ -23,6 +24,4 @@ public:
 	~Zombie();
 	void	annouce(void);
 	Zombie	*newZombie(std::string name);
-	void	randomChump(std::string name);
-	
 };

@@ -14,19 +14,17 @@
 
 Zombie::Zombie(std::string name)
 {
-	std::string *str = new std::string(name);
 	this->_name = name;
-	std::cout << "Zombie " << str << " is created" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "Zombie " << str << " is dead" << std::endl;
+	std::cout << RED << this->_name << " is dead" << std::endl;
 }
 
 void	Zombie::annouce(void)
 {
-	std::cout << this->_name << " : BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << GREEN << _name << " : BraiiiiiiinnnzzzZ..." << RESET << std::endl;
 }
 
 

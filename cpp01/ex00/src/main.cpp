@@ -12,22 +12,14 @@
 
 #include "../include/Zombie.hpp"
 
+Zombie *newZombie(std::string name);
+void randomChump(std::string name);
+
 int main()
 {
-	std::cout << "-START-" << std::endl;
-	//randomChump("Foo");
-	std::string name;
-
-	std::cout << "Enter a name for the zombie: " << std::endl;
-	std::getline(std::cin, name);
-	std::string *zombie = new std::string(name);
-	std::cout << zombie << " : BraiiiiiiinnnzzzZ" << std::endl;
-	//zombie.annouce();
-	// while (1)
-	// {
-		
-	// 	delete newZombie;
-	// }
+	Zombie *zombie = newZombie("Rodolphe");
+	zombie->annouce();
 	delete zombie;
+	randomChump("Foo");
 	return (0);
 }
