@@ -12,9 +12,6 @@
 
 #include "../include/Zombie.hpp"
 
-Zombie*	zombieHorde( int N, std::string name );
-void	announce();
-
 int main()
 {
 	Zombie *zombie = zombieHorde(5, "Carlos");

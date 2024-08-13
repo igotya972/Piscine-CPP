@@ -23,7 +23,7 @@ class Zombie
 		Zombie();
 		Zombie(std::string name);
 		~Zombie();
-		Zombie*	zombieHorde(int N, std::string name);
 		void	announce();
 };
 
+Zombie*	zombieHorde( int N, std::string name);
