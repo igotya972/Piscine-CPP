@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 19:03:37 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/10 23:31:47 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/12 20:22:47 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void Contact::set_first_name(std::string first_name)
 		std::cout << "Enter your first name: ";
 		std::cout << RESET;
 		std::getline(std::cin, first_name);
+		if (!is_valid_input(first_name))
+			continue;
 		size_t start = first_name.find_first_not_of(" \t\n");
-		size_t end = first_name.find_last_not_of("\t\n");
+		size_t end = first_name.find_last_not_of(" \t\n");
 		if (start == std::string::npos)
 		{
 			std::cout << RED;
@@ -57,7 +59,9 @@ void Contact::set_nickname(std::string nickname)
 		std::cout << RESET;
 		std::getline(std::cin, nickname);
 		size_t start = nickname.find_first_not_of(" \t\n");
-		size_t end = nickname.find_last_not_of("\t\n");
+		size_t end = nickname.find_last_not_of(" \t\n");
+		if (!is_valid_input(nickname))
+			continue;
 		if (start == std::string::npos)
 		{
 			std::cout << RED;
@@ -89,8 +93,10 @@ void Contact::set_last_name(std::string last_name)
 		std::cout << "Enter your last_name: ";
 		std::cout << RESET;
 		std::getline(std::cin, last_name);
+		if (!is_valid_input(last_name))
+			continue;
 		size_t start = last_name.find_first_not_of(" \t\n");
-		size_t end = last_name.find_last_not_of("\t\n");
+		size_t end = last_name.find_last_not_of(" \t\n");
 		if (start == std::string::npos)
 		{
 			std::cout << RED;
@@ -105,7 +111,7 @@ void Contact::set_last_name(std::string last_name)
 		}
 		else
 		{
-			this->last_name = last_name;
+			this->last_name = last_name.substr(start, end - start + 1);
 			std::cout << GREEN;
 			std::cout << "last_name: " << this->last_name << std::endl;
 			std::cout << RESET;
@@ -122,29 +128,12 @@ void Contact::set_phone_number(std::string phone_number)
 		std::cout << "Enter your Number: ";
 		std::cout << RESET;
 		std::getline(std::cin, phone_number);
-		bool all_digits = true;
-		for (size_t i = 0; i < phone_number.length(); ++i)
-		{
-			if (std::isdigit(phone_number[i]))
-			{
-				all_digits += phone_number[i];
-			}
-			else if (!std::isdigit(phone_number[i]))
-			{
-				all_digits = false;
-				break;
-			}
-		}
+		if (!is_all_digits(phone_number))
+			continue;
 		if (phone_number.empty())
 		{
 			std::cout << RED;
 			std::cout << "The phone number cannot be empty. Try again." << std::endl;
-			std::cout << RESET;
-		}
-		else if (!all_digits)
-		{
-			std::cout << RED;
-			std::cout << "Invalid input. All characters must be numeric. Try again." << std::endl;
 			std::cout << RESET;
 		}
 		else
@@ -191,15 +180,15 @@ void Contact::set_darkest_secret(std::string darkest_secret)
 void Contact::display_contact()
 {
 	if (first_name.length() >= 9)
-		std::cout << RED << std::setw(9) << first_name.substr(0, 9) << RESET << BLUE << ". | ";
+		std::cout << RED << std::setw(9) << first_name.erase(9) << RESET << BLUE << ". | ";
 	else
 		std::cout << RED << std::setw(10) << first_name << RESET << BLUE << " | ";
 	if (last_name.length() >= 9)
-		std::cout << RED << std::setw(9) << last_name.substr(0, 9) << RESET << BLUE << ". | ";
+		std::cout << RED << std::setw(9) << last_name.erase(9) << RESET << BLUE << ". | ";
 	else
 		std::cout << RED << std::setw(10) << last_name << RESET << BLUE << " | ";
 	if (nickname.length() >= 9)
-		std::cout << RED << std::setw(9) << nickname.substr(0, 9) << RESET << BLUE << ". | " << std::endl;
+		std::cout << RED << std::setw(9) << nickname.erase(9) << RESET << BLUE << ". | " << std::endl;
 	else
 		std::cout << RED << std::setw(10) << nickname << RESET << BLUE << " | " << std::endl;
 }

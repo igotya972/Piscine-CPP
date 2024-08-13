@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:25:33 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/11 04:21:32 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/12 18:41:22 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main ()
 		else if (input == "EXIT" || input == "exit")
 		{
 			std::cout << "Quiting..." << std::endl;
-			exit(EXIT_SUCCESS);
+			return (0);
 		}
 		else
 		{

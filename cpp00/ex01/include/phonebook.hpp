@@ -6,13 +6,11 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 03:15:54 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/11 04:14:36 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/12 20:00:50 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
-
+#pragma once
 #include "contact.hpp"
 
 class Phonebook
@@ -28,5 +26,3 @@ class Phonebook
 		void search_contact();
 		void display_tab();
 };
-
-#endif
