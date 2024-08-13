@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 19:03:37 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/12 20:22:47 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/13 19:56:47 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void Contact::set_first_name(std::string first_name)
 		std::cout << "Enter your first name: ";
 		std::cout << RESET;
 		std::getline(std::cin, first_name);
+		if (std::cin.eof())
+			return;
 		if (!is_valid_input(first_name))
 			continue;
 		size_t start = first_name.find_first_not_of(" \t\n");
@@ -58,6 +60,8 @@ void Contact::set_nickname(std::string nickname)
 		std::cout << "Enter your nickname: ";
 		std::cout << RESET;
 		std::getline(std::cin, nickname);
+		if (std::cin.eof())
+			return;
 		size_t start = nickname.find_first_not_of(" \t\n");
 		size_t end = nickname.find_last_not_of(" \t\n");
 		if (!is_valid_input(nickname))
@@ -93,6 +97,8 @@ void Contact::set_last_name(std::string last_name)
 		std::cout << "Enter your last_name: ";
 		std::cout << RESET;
 		std::getline(std::cin, last_name);
+		if (std::cin.eof())
+			return;
 		if (!is_valid_input(last_name))
 			continue;
 		size_t start = last_name.find_first_not_of(" \t\n");
@@ -127,6 +133,8 @@ void Contact::set_phone_number(std::string phone_number)
 		std::cout << BLUE;
 		std::cout << "Enter your Number: ";
 		std::cout << RESET;
+		if(std::cin.eof())
+			break;
 		std::getline(std::cin, phone_number);
 		if (!is_all_digits(phone_number))
 			continue;
@@ -142,7 +150,7 @@ void Contact::set_phone_number(std::string phone_number)
 			std::cout << GREEN;
 			std::cout << "Number: " << this->phone_number << std::endl;
 			std::cout << RESET;
-			break;
+				break;
 		}	
 	}
 }
@@ -156,6 +164,8 @@ void Contact::set_darkest_secret(std::string darkest_secret)
 			std::cout << BLUE;
 			std::cout << "Enter your darkest_secret: ";
 			std::cout << RESET;
+			if (std::cin.eof())
+				break;
 			std::getline(std::cin, darkest_secret);
 		}
 		else if (darkest_secret.length() < 8)

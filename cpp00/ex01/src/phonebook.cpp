@@ -44,6 +44,8 @@ void Phonebook::search_contact()
 			contacts[i].display_contact();
 		}
 		std::cout << BLUE << "Enter the index of the contact you want to display: " << RESET;
+		if(std::cin.eof())
+			break;
 		std::getline(std::cin, input);
 		std::stringstream ss(input);
 		if (ss >> index)

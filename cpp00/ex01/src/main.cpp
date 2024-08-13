@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:25:33 by dferjul           #+#    #+#             */
-/*   Updated: 2024/08/12 18:41:22 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/08/13 19:49:42 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int main ()
 		std::cout << "Enter a command: ";
 		std::cout << RESET;
 		std::getline(std::cin, input);
+		if(std::cin.eof())
+			break;
 		if(input == "ADD" || input == "add")
 			phonebook.add_contact();
 		else if (input == "SEARCH" || input == "search" || input == "s")
