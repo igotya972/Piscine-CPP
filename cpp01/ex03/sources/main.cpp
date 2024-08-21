@@ -10,3 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/HumainA.hpp"
+#include "../include/HumainB.hpp"
+#include "../include/Weapon.hpp"
+
+int main()
+{
+	Weapon club = Weapon("crude spiked club");
+	HumanA bob(club, "Bob");
+	bob.attack();
+	club.setType("some other type of club");
+	bob.attack();
+}

@@ -24,4 +24,4 @@ class HumanA
 		HumanA(Weapon &weapon, std::string name);
 		~HumanA();
 		void attack();
-}
+};
