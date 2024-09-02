@@ -40,13 +40,7 @@ int main(int ac, char **av)
 	}
 	while (std::getline(file, line))
 	{
-		std::size_t pos = 0;
-		while ((pos = line.find(s1, pos)) != std::string::npos)
-		{
-			line.replace(pos, s1.length(), s2);
-			pos += s2.length();
-		}
-		output << line << std::endl;
+		
 	}
 	file.close();
 	output.close();
