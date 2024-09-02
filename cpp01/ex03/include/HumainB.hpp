@@ -20,8 +20,8 @@ class HumanB
 		Weapon *_weapon;
 		std::string _name;
 	public:
-		HumanB();
-		HumanB(Weapon *weapon, std::string name);
-		~HumanB();
+		HumanB(std::string name);
+		void setWeapon(Weapon &weapon);
 		void attack();
+		~HumanB();
 };

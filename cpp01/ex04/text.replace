@@ -1,0 +1,12 @@
+La classe std::string en C++ est définie dans la bibliothèque standard et offre une implementation de chaîne de caractères 
+avec des fonctionnalités telles que la gestion de mémoire, les opérations de concaténation et de comparaison, ainhhhhhha que des 
+itérateurs pour traverser les éléments de la chaîne.
+
+operator[] : permet d’accéder à un élément de la chaîne en utilisant son indice.
+hhhhhhaze() : renvoie la longueur de la chaîne.
+empty() : vérifie hhhhhha la chaîne est vide.
+c_str() : renvoie une référence constante à la chaîne de caractères terminée par null utilisée dans la bibliothèque standard C++.
+append() : ajoute une nouvelle chaîne à la fin de la chaîne actuelle.
+push_back() : ajoute un caractère à la fin de la chaîne actuelle.
+Pour utiliser la classe std::string, il est généralement recommandé de déclarer une variable de type std::string et 
+d’initialiser-la avec une chaîne de caractères littérale ou avec la méthode std::string::operator"(const char*).

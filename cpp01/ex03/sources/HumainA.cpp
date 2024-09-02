@@ -12,4 +12,11 @@
 
 #include "../include/HumainA.hpp"
 
+HumanA::HumanA(Weapon &weapon, std::string name) : _weapon(weapon), _name(name) {}
 
+void HumanA::attack()
+{
+	std::cout << _name << " attacks with " << _weapon.getType() << std::endl;
+}
+
+HumanA::~HumanA() {}
