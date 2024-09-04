@@ -1,12 +1,20 @@
-La classe std::string en C++ est définie dans la bibliothèque standard et offre une implementation de chaîne de caractères 
-avec des fonctionnalités telles que la gestion de mémoire, les opérations de concaténation et de comparaison, ainsi que des 
-itérateurs pour traverser les éléments de la chaîne.
+Chapitre VII 
 
-operator[] : permet d’accéder à un élément de la chaîne en utilisant son indice.
-size() : renvoie la longueur de la chaîne.
-empty() : vérifie si la chaîne est vide.
-c_str() : renvoie une référence constante à la chaîne de caractères terminée par null utilisée dans la bibliothèque standard C++.
-append() : ajoute une nouvelle chaîne à la fin de la chaîne actuelle.
-push_back() : ajoute un caractère à la fin de la chaîne actuelle.
-Pour utiliser la classe std::string, il est généralement recommandé de déclarer une variable de type std::string et 
-d’initialiser-la avec une chaîne de caractères littérale ou avec la méthode std::string::operator"(const char*).
+Exercice 04 : Sed est pour les perdants 
+Exercice : 04 Le Sed est pour les perdants 
+Annuaire de retournement : ex04/ 
+Fichiers à rendre : Makefile, main.cpp, *.cpp, *.{h, hpp} 
+Fonctions interdites : std::string::replace 
+
+Créez un programme qui prend trois paramètres dans l'ordre suivant : 
+un nom de fichier et deux chaînes de caractères, s1 et s2. 
+Il ouvre le fichier <nom du fichier> et copie son contenu dans un 
+nouveau fichier. <fichier>.replace, remplaçant chaque occurrence de s1 par s2.
+
+L'utilisation de fonctions de manipulation de fichiers C est interdite et sera considérée 
+comme de la triche. Toutes les fonctions membres de la classe std::string sont autorisées, 
+sauf replace. Utilisez-les à bon escient ! 
+
+Bien entendu, il faut gérer les entrées et les erreurs inattendues. 
+Vous devez créer et présenter vos propres tests pour vous assurer que votre programme 
+fonctionne comme prévu
