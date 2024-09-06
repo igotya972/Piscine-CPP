@@ -56,7 +56,9 @@ int main(int ac, char **av)
 	}
 	while (std::getline(file, line))
 	{
-		output_file << ft_replace(line, s1, s2) << std::endl;
+		output_file << ft_replace(line, s1, s2);
+		if (!file.eof())
+			output_file << std::endl;
 	}
 	file.close();
 	output_file.close();
