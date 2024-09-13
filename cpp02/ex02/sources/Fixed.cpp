@@ -73,7 +73,7 @@ std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
 	return (os);
 }
 
-// Comparison operators
+// Compar operators
 bool Fixed::operator>(const Fixed &other) const
 {
 	return (this->_value > other.getRawBits());
@@ -115,7 +115,6 @@ Fixed Fixed::operator-(const Fixed &other) const
 	return (Fixed(this->toFloat() - other.toFloat()));
 }
 
-// Arithmetic operators
 Fixed Fixed::operator*(const Fixed &other) const
 {
 	return (Fixed(this->toFloat() * other.toFloat()));
@@ -156,20 +155,28 @@ Fixed Fixed::operator--(int)
 // Min/max static functions
 Fixed &Fixed::min(Fixed &a, Fixed &b)
 {
-	return (a < b ? a : b);
+	if (a < b)
+		return (a);
+	return (b);
 }
 
 const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
 {
-	return (a < b ? a : b);
+	if (a < b)
+		return (a);
+	return (b);
 }
 
 Fixed &Fixed::max(Fixed &a, Fixed &b)
 {
-	return (a > b ? a : b);
+	if (a > b)
+		return (a);
+	return (b);
 }
 
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
-	return (a > b ? a : b);
+	if (a > b)
+		return (a);
+	return (b);
 }

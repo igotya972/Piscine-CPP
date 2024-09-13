@@ -4,7 +4,7 @@ OBJ_DIR = .objs
 
 OBJS	=	$(addprefix $(OBJ_DIR)/,$(SRCS:.cpp=.o))
 
-CC	=	g++
+CC	=	c++
 
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g -fsanitize=address -fsanitize=leak
 

@@ -32,7 +32,7 @@ Fixed::Fixed(const int value)
 Fixed::Fixed(const Fixed &copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_value = copy.getRawBits();
+	*this = copy;
 }
 
 Fixed::Fixed(const float value)
