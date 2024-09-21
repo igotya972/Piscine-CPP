@@ -25,4 +25,3 @@ class ScavTrap : public ClapTrap
 		// void beRepaired(unsigned int amount);
 		void guardGate();
 };
-
