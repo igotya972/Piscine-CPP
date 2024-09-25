@@ -12,7 +12,7 @@
 
 #include "includes/ClapTrap.hpp"
 #include "includes/ScavTrap.hpp"
-
+/*
 int main()
 {
 	ScavTrap luc("Luc");
@@ -21,14 +21,32 @@ int main()
 	bob.attack("Enemy");
 	bob.takeDamage(12);
 	bob.beRepaired(2);
+
 	luc.takeDamage(30);
 	luc.beRepaired(20);
 	luc.guardGate();
-	/* for (int i = 0; i < 12; i++)
+	 for (int i = 0; i < 12; i++)
 	{
 		luc.attack("Enemy");
 		//luc.takeDamage(2);
 		//bob.beRepaired(2);
-	} */
+	} 
 	return 0;
+}*/
+
+int main()
+{
+	ScavTrap luc("Luc");
+	ClapTrap bob("Bob");
+
+	luc.attack("Enemy");
+	bob.takeDamage(2);
+
+	bob.attack("Luc");
+	luc.takeDamage(2);
+
+	bob.beRepaired(3);
+	bob.beRepaired(3);
 }
+
+
