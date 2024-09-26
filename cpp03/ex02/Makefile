@@ -10,7 +10,7 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g -fsanitize=address #-fsanitize=leak
 
 RM	=	rm -rf
 
-NAME	=	Fixed
+NAME	=	FragTrap
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(@D)
