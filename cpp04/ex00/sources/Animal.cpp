@@ -34,6 +34,7 @@ Animal::~Animal()
 
 Animal& Animal::operator=(const Animal& copy)
 {
+	std::cout << "Animal copy assignment operator called" << std::endl;
 	this->_type = copy._type;
 	return *this;
 }	
@@ -45,5 +46,5 @@ std::string Animal::getType() const
 
 void Animal::makeSound() const
 {
-	std::cout << "Animal sound" << std::endl;
+	//std::cout << "Animal sound" << std::endl;
 }	
