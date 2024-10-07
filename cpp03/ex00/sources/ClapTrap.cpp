@@ -13,7 +13,7 @@
 #include "../includes/ClapTrap.hpp"
 
 
-ClapTrap::ClapTrap(std::string name) : _name(name),_hitPoints(10), _energyPoints(10), _attackDamage(1)
+ClapTrap::ClapTrap(const std::string &name) : _name(name),_hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap " << _name << " created" << std::endl;
 }
@@ -44,7 +44,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (_hitPoints <= 0)
 	{
-		std::cout << "ClapTrap " << _name << " has no hit points left" << std::endl;
+		std::cout << "ClapTrap " << _name << " is dead" << std::endl;
 		return;
 	}
 	else
@@ -85,4 +85,29 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& copy)
 		this->_attackDamage = copy._attackDamage;
 	}
 	return *this;
+}
+
+void ClapTrap::setAttackDamage(int attackDamage)
+{
+	_attackDamage = attackDamage;
+}
+
+const std::string &ClapTrap::getName() const
+{
+	return _name;
+}
+
+const int &ClapTrap::getHitpoints() const
+{
+	return (_hitPoints);
+}
+
+const int &ClapTrap::getEnergyPoints() const
+{
+	return _energyPoints;
+}
+
+const int &ClapTrap::getAttackDamage() const
+{
+	return _attackDamage;
 }

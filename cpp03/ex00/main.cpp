@@ -17,13 +17,18 @@ int main()
 	ClapTrap luc("Luc");
 	ClapTrap bob("Bob");
 	// luc.attack("Enemy");
-	bob.takeDamage(12);
+	bob.setAttackDamage(5);
+	luc.setAttackDamage(2);
+	bob.attack(luc.getName());
+	luc.takeDamage(5);
 	// bob.beRepaired(2);
 	for (int i = 0; i < 12; i++)
 	{
-		luc.attack("Enemy");
+		luc.attack(bob.getName());
+		bob.takeDamage(2);
 		//luc.takeDamage(2);
 		//bob.beRepaired(2);
 	}
+	bob.attack(luc.getName());
 	return 0;
 }

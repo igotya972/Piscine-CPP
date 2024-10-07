@@ -23,10 +23,15 @@ class ClapTrap
 		int _attackDamage;
 	public:
 		ClapTrap();
-		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap& copy);
+		ClapTrap(const std::string &name);
+		ClapTrap(const ClapTrap &copy);
 		~ClapTrap();
 		void attack(const std::string& target);
+		void setAttackDamage(int attackDamage);
+		const int &getHitpoints() const;
+		const int &getEnergyPoints() const;
+		const int &getAttackDamage() const;
+		const std::string &getName() const;
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 		ClapTrap& operator=(const ClapTrap& copy);
