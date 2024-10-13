@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 18:30:17 by dferjul           #+#    #+#             */
-/*   Updated: 2024/10/12 18:30:17 by dferjul          ###   ########.fr       */
+/*   Created: 2024/09/29 02:33:42 by dferjul           #+#    #+#             */
+/*   Updated: 2024/09/29 02:33:42 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ std::string WrongAnimal::getType() const
 
 void WrongAnimal::makeSound() const
 {
-	std::cout << "(WrongAnimal)" << std::endl;
+	std::cout << "WrongAnimal sound" << std::endl;
 }

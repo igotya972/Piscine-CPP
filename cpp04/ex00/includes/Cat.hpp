@@ -24,3 +24,4 @@ class Cat : public Animal
 		void makeSound() const;
 };
 
+

@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 04:38:54 by dferjul           #+#    #+#             */
-/*   Updated: 2024/10/13 04:38:54 by dferjul          ###   ########.fr       */
+/*   Created: 2024/09/26 21:06:46 by dferjul           #+#    #+#             */
+/*   Updated: 2024/10/12 21:53:20 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <string>
-#include <sstream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Animal
+class Cat : public Animal
 {
-	protected:
-		std::string _type;
+	private:
+		Brain* _brain;
 	public:
-		Animal();
-		Animal(const Animal& copy);
-		Animal(std::string type);
-		Animal& operator=(const Animal& copy);
-		virtual ~Animal();
-		std::string getType() const;
-		virtual void makeSound() const;
+		Cat();
+		Cat(const Cat& copy);
+		~Cat();
+		Cat& operator=(const Cat& copy);
+		void makeSound() const;
 };
 

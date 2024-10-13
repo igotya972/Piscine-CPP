@@ -22,10 +22,10 @@ class Animal
 	public:
 		Animal();
 		Animal(std::string type);
+		Animal& operator=(const Animal& copy);
 		Animal(const Animal& copy);
 		virtual ~Animal();
 		std::string getType() const;
 		virtual void makeSound() const;
-		Animal& operator=(const Animal& copy);
 };
 
