@@ -17,7 +17,7 @@ Animal::Animal()
 	std::cout << "Animal constructor called" << std::endl;
 }
 
-Animal::Animal(std::string type)
+Animal::Animal(std::string const &type)
 {
 	this->_type = type;
 	std::cout << "Animal constructor called" << std::endl;
