@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   brain.cpp                                          :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/29 21:43:08 by dferjul           #+#    #+#             */
-/*   Updated: 2024/10/12 22:55:09 by dferjul          ###   ########.fr       */
+/*   Created: 2024/10/22 15:51:29 by dferjul           #+#    #+#             */
+/*   Updated: 2024/10/22 18:04:59 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,20 @@ Brain& Brain::operator=(const Brain& copy)
 {
 	for (int i = 0; i < 100; i++)
 		this->_ideas[i] = copy._ideas[i];
-	return *this;
+	return (*this);
+}
+
+void Brain::setIdeas(int index, std::string idea)
+{
+	if (index >= 0 && index < 100)
+		this->_ideas[index] = idea;
+}
+
+std::string Brain::getIdeas(int index) const
+{
+	
+	if (index >= 0 && index < 100)
+		return (this->_ideas[index]);
+	else
+		return ("Index doesn't exist.");
 }

@@ -36,7 +36,13 @@ Dog::~Dog()
 
 Dog& Dog::operator=(const Dog& copy)
 {
-	std::cout << "Dog copy assignment operator called" << std::endl;
+	std::cout << "Cat copy assignment operator called" << std::endl;
 	this->_type = copy._type;
+	this->_brain = new Brain(*copy._brain);
 	return *this;
+}
+
+Brain *Dog::getBrain() const
+{
+	return (_brain);
 }

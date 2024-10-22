@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 17:49:14 by dferjul           #+#    #+#             */
-/*   Updated: 2024/10/21 17:49:14 by dferjul          ###   ########.fr       */
+/*   Created: 2024/10/13 04:38:54 by dferjul           #+#    #+#             */
+/*   Updated: 2024/10/13 04:38:54 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ class Animal
 	public:
 		Animal();
 		Animal(const Animal& copy);
-		Animal(std::string const &type);
+		Animal(std::string type);
 		Animal& operator=(const Animal& copy);
 		virtual ~Animal();
 		std::string getType() const;
 		virtual void makeSound() const = 0;
 };
+

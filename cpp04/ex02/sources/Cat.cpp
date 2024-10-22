@@ -43,3 +43,8 @@ Cat& Cat::operator=(const Cat& copy)
 	return *this;
 }
 
+Brain *Cat::getBrain() const
+{
+	return (_brain);
+}
+
