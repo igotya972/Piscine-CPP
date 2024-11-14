@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:48:47 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/06 19:37:47 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/07 02:30:04 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat()
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << this->_name << " Constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& copy)
@@ -25,12 +25,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat& copy)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-	std::cout << "Constructor with name and grade called" << std::endl;
+	//std::cout << this->_name << " grade: " << this->_grade << " Constructor called" << std::endl;
 	if (grade < 1)
 	{
 		throw Bureaucrat::GradeTooHighException();
@@ -96,4 +96,12 @@ void Bureaucrat::downGrade()
 	{
 		throw Bureaucrat::GradeTooLowException();
 	}
+}
+
+void Bureaucrat::signForm(bool sign)
+{
+	if (sign)
+		std::cout << this->_name << " signs the form" << std::endl;
+	else
+		std::cout << this->_name << " cannot sign the form" << std::endl;
 }

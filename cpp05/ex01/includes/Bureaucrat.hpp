@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:48:18 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/13 18:09:20 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/11 15:02:15 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ class Bureaucrat
 		{
 			const char* what() const throw();
 		};
+		// void signForm(bool sign);
 };
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
