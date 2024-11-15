@@ -6,11 +6,12 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 20:43:06 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/11 15:01:09 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/15 01:05:41 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Form.hpp"
+#include "../includes/Bureaucrat.hpp"
 
 Form::Form() : _nameForm("default"), _signed(false), _gradeToSign(1), _gradeToExecute(1)
 {

@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:48:47 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/07 02:30:04 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/14 14:12:07 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,15 @@ void Bureaucrat::downGrade()
 	}
 }
 
-void Bureaucrat::signForm(bool sign)
+void Bureaucrat::signForm(Form &form)
 {
-	if (sign)
-		std::cout << this->_name << " signs the form" << std::endl;
-	else
-		std::cout << this->_name << " cannot sign the form" << std::endl;
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signs " << form.getName() << std::endl;
+	}
+	catch(Form::GradeTooLowException &e)
+	{
+		std::cerr << this->getName() << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
+	}
 }

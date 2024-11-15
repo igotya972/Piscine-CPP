@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:47:28 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/13 16:47:39 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/15 01:04:49 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ int main()
 {
 	try
 	{
-		Bureaucrat b1("b1", 1);
+		Bureaucrat b1("b1", 7);
 		std::cout << b1 << std::endl;
 		Form formA("formA", 6, 42);
 		std::cout << formA << std::endl;
-		formA.signForm(b1);
-		//std::cout << formA << std::endl;
+		b1.signForm(formA);
+		b1.upGrade();
+		std::cout << b1 << std::endl;
+		b1.signForm(formA);
 	}
 	catch (std::exception & e)
 	{

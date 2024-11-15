@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 20:03:26 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/09 23:05:58 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/14 20:53:50 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
 class Form 
 {
 private:
@@ -39,7 +40,8 @@ public:
 	};
 	class GradeTooLowException : public std::exception
 	{
-		const char* what() const throw();
+		public:
+			virtual const char* what() const throw();
 	};
 };
 std::ostream& operator<<(std::ostream& os, const Form& form);
