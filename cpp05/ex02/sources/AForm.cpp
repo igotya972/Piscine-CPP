@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 20:43:06 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/08 17:01:30 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/17 19:05:40 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 AForm::AForm() : _nameForm("default"), _signed(false), _gradeToSign(150), _gradeToExecute(150)
 {
-	//std::cout << "Default constructor called" << std::endl;
+	_signed = false;
 }
 
 AForm::AForm(const AForm& copy) : _nameForm(copy.getName()), _signed(copy.getSigned()), _gradeToSign(copy.getGradeToSign()), _gradeToExecute(copy.getGradeToExecute())
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
@@ -39,6 +38,7 @@ AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : _nameForm(
 	{
 		throw AForm::GradeTooLowException();
 	}
+	_signed = false;
 }
 
 AForm& AForm::operator=(const AForm& copy)

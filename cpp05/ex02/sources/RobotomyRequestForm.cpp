@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:28:05 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/08 16:43:53 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/17 18:57:46 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,3 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	else
 		std::cout << this->_target << " robotomization failed" << std::endl;
 }
-

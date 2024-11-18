@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 20:03:26 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/08 16:48:16 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/16 05:57:44 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
 class AForm 
 {
 private:
@@ -23,7 +24,7 @@ private:
 	const int _gradeToExecute;
 public:
 	AForm();
-	~AForm();
+	virtual ~AForm();
 	AForm(const AForm& copy);
 	AForm(std::string name, int gradeToSign, int gradeToExecute);
 	AForm& operator=(const AForm& copy);
@@ -35,11 +36,13 @@ public:
 	virtual void execute(const Bureaucrat& executor) const = 0;
 	class GradeTooHighException : public std::exception
 	{
-		const char* what() const throw();
+		public:
+			const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
-		const char* what() const throw();
+		public:
+			const char* what() const throw();
 	};
 };
 std::ostream& operator<<(std::ostream& os, const AForm& form);
