@@ -6,25 +6,31 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:22:34 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/19 15:26:26 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/20 18:22:59 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-class Intern : public AForm
+class Intern
 {
-	public :
+	public:
 		Intern();
-		virtual ~Intern();
+		~Intern();
 		Intern(const Intern& copy);
 		Intern& operator=(const Intern& copy);
 		AForm* makeForm(std::string name, std::string target);
 		class FormNotFoundException : public std::exception
 		{
 			public:
-				const char* what() const throw();
+				virtual const char* what() const throw()
+				{
+					return "Form not found";
+				}
 		};
-}
+};
