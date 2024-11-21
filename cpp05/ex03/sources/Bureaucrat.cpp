@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:48:47 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/15 13:22:34 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/21 18:20:46 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Bureaucrat::Bureaucrat()
 {
-	std::cout << this->_name << " Constructor called" << std::endl;
+	//std::cout << this->_name << " Constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	//std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
@@ -28,7 +28,7 @@ Bureaucrat::~Bureaucrat()
 	//std::cout << "Destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
 	//std::cout << this->_name << " grade: " << this->_grade << " Constructor called" << std::endl;
 	if (grade < 1)
@@ -39,6 +39,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 	{
 		throw Bureaucrat::GradeTooLowException();
 	}
+	this->_grade = grade;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
@@ -72,12 +73,12 @@ void Bureaucrat::setGrade(int grade)
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Grade too high";
+	return "\033[1;31mGrade too high\033[0m";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Grade too low";
+	return "\033[1;31mGrade too low\033[0m";
 }
 
 void Bureaucrat::upGrade()
@@ -103,11 +104,11 @@ void Bureaucrat::signForm(AForm &form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << this->_name << " signs " << form.getName() << std::endl;
+		std::cout << "\033[1;32m" << this->_name << " signs " << form.getName() << "\033[0m" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << this->_name << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cerr << "\033[1;31m" << this->_name << " cannot sign " << form.getName() << " because " << e.what() << "\033[0m" << std::endl;
 	}
 }
 
@@ -116,10 +117,10 @@ void Bureaucrat::executeForm(AForm const & form)
 	try
 	{
 		form.execute(*this);
-		std::cout << this->_name << " executes " << form.getName() << std::endl;
+		std::cout << "\033[1;32m" << this->_name << " executes " << form.getName() << "\033[0m" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << this->_name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
+		std::cerr << "\033[1;31m" << this->_name << " cannot execute " << form.getName() << " because " << e.what() << "\033[0m" << std::endl;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 20:43:06 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/17 19:05:40 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/21 19:15:54 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ AForm::AForm(const AForm& copy) : _nameForm(copy.getName()), _signed(copy.getSig
 	*this = copy;
 }
 
-AForm::~AForm()
-{
-	//std::cout << "Destructor called" << std::endl;
-}
+AForm::~AForm() {}
 
 AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : _nameForm(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
@@ -80,33 +77,25 @@ int AForm::getGradeToExecute() const
 void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() <= this->_gradeToSign)
-	{
 		this->_signed = true;
-	}
 	else
-	{
 		throw AForm::GradeTooLowException();
-	}
 }
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high";
+	return "\033[1;31mGrade of Form is too high\033[0m";
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low";
+	return "\033[1;31mGrade of Form is too low\033[0m";
 }
 
 void AForm::execute(const Bureaucrat& executor) const
 {
 	if (executor.getGrade() > this->_gradeToExecute)
-	{
 		throw AForm::GradeTooLowException();
-	}
 	if (!this->_signed)
-	{
 		throw AForm::GradeTooLowException();
-	}
 }

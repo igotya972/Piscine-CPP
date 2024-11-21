@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:22:34 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/20 18:22:59 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/21 19:14:51 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ class Intern
 	public:
 		Intern();
 		~Intern();
-		Intern(const Intern& copy);
-		Intern& operator=(const Intern& copy);
 		AForm* makeForm(std::string name, std::string target);
 		class FormNotFoundException : public std::exception
 		{

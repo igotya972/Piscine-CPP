@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:47:28 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/20 18:22:04 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/21 19:08:42 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
 	try
 	{
 		Bureaucrat boss("Boss", 1);
-		Bureaucrat stagiaire("Stagiaire", 150);
+		Bureaucrat stagiaire("Stagiaire", 50);
 		Intern someRandomIntern;
 
 		std::cout << "=== Test de création de formulaires ===" << std::endl;
@@ -62,7 +62,7 @@ int main()
 	}
 	catch (std::exception& e)
 	{
-		std::cout << "Exception principale : " << e.what() << std::endl;
+		std::cerr << "Exception principale : " << e.what() << std::endl;
 	}
 	return 0;
 }

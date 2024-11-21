@@ -6,30 +6,15 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:22:54 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/20 18:19:31 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/21 19:14:47 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Intern.hpp"
 
-Intern::Intern()
-{
-}
+Intern::Intern() {}
 
-Intern::~Intern()
-{
-}
-
-Intern::Intern(const Intern& copy)
-{
-	(void)copy;
-}
-
-Intern& Intern::operator=(const Intern& copy)
-{
-	(void)copy;
-	return (*this);
-}
+Intern::~Intern() {}
 
 AForm* Intern::makeForm(std::string name, std::string target)
 {
