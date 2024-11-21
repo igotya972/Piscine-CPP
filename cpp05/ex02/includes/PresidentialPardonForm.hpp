@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:37:36 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/21 16:45:36 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/21 18:36:33 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ class PresidentialPardonForm : public AForm
 		std::string _target;
 	public:
 		PresidentialPardonForm();
-		PresidentialPardonForm(const PresidentialPardonForm& copy);
 		PresidentialPardonForm(std::string const target);
-		virtual ~PresidentialPardonForm();
-		PresidentialPardonForm& operator=(const PresidentialPardonForm& copy);
+		~PresidentialPardonForm();
 		virtual void execute(const Bureaucrat& executor) const;
 };

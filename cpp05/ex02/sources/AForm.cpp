@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 20:43:06 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/17 19:05:40 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/21 18:24:13 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,12 @@ void AForm::beSigned(const Bureaucrat& bureaucrat)
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high";
+	return "\033[1;31mGrade of Form is too high\033[0m";
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low";
+	return "\033[1;31mGrade of Form is too low\033[0m";
 }
 
 void AForm::execute(const Bureaucrat& executor) const
