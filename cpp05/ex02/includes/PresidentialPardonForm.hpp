@@ -6,14 +6,12 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:37:36 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/16 05:52:36 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/21 16:45:36 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <string>
 #include "AForm.hpp"
 
 class PresidentialPardonForm : public AForm

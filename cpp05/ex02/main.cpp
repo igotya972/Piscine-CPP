@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:47:28 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/16 05:59:20 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/21 17:07:09 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 int main()
 {
-	Bureaucrat *boss = new Bureaucrat("Bob", 3);
-	std::cout << *boss << std::endl;
+	try
+	{
+		Bureaucrat *boss = new Bureaucrat("Bob", -300);
+		std::cout << *boss << std::endl;
 
-	std::cout << std::endl;
-	
-	try {
+		std::cout << std::endl;
 		AForm *shrubbery = new ShrubberyCreationForm("Marley");
 		std::cout << *shrubbery << std::endl;
 		
@@ -57,15 +57,15 @@ int main()
 		delete (shrubbery);
 		delete (robot);
 		delete (pp);
+		delete (boss);
 	}
 	catch (AForm::GradeTooHighException &e)
 	{
-		std::cerr << "\033[33mERROR: " << e.what() << std::endl << "\033[0m" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	catch (AForm::GradeTooLowException &e)
 	{
-		std::cerr << "\033[33mERROR: " << e.what() << std::endl << "\033[0m" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-	delete (boss);
-	
+	return 0;
 }
