@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 20:03:26 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/16 05:57:44 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/22 15:16:33 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ public:
 			const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
+	{
+		public:
+			const char* what() const throw();
+	};
+	class FormNotUnsigned : public std::exception
 	{
 		public:
 			const char* what() const throw();

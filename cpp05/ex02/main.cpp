@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:47:28 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/21 18:24:47 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/22 15:01:40 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main()
 		
 		std::cout << std::endl;
 		
-		boss.signForm(robot);
+		//boss.signForm(robot);
 		boss.executeForm(robot);
 		
 		std::cout << std::endl;

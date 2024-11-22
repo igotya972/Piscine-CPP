@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:47:28 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/06 19:41:22 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/22 14:52:24 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ int main()
 	std::cout << "--------------------------------------------" << std::endl;
 	try
 	{
-		Bureaucrat bureaucrat("U", 1);
+		Bureaucrat bureaucrat("U", 155);
 		std::cout << bureaucrat << std::endl;
+		bureaucrat.downGrade();
 		bureaucrat.upGrade();
 		std::cout << bureaucrat << std::endl;
 	}
