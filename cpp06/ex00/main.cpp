@@ -6,7 +6,13 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 01:09:09 by dferjul           #+#    #+#             */
-/*   Updated: 2024/11/24 01:09:10 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/11/26 02:03:26 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "inc/ScalarConverter.hpp"
+
+int main()
+{
+	return (0);
+}
