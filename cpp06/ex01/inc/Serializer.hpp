@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 01:42:09 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/03 02:29:04 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/12/03 18:02:07 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ struct Data
 {
 	std::string	_name;
 	int			_value;
-	Data(std::string name, int value) : _name(name), _value(value) {}
+	Data(std::string name, int value);
 };
 
 class Serializer

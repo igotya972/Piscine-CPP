@@ -1,26 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   B.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 12:45:45 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/03 17:52:47 by dferjul          ###   ########.fr       */
+/*   Created: 2024/12/03 17:32:10 by dferjul           #+#    #+#             */
+/*   Updated: 2024/12/03 17:41:23 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "../inc/B.hpp"
 
-#include <cstdlib>
-#include <ctime>
-#include <iostream>
-class Base
-{
-public:
-	virtual ~Base();
-};
-
-Base *generate(void);
-void identify(Base *p);
-void identify(Base &p);
+B::~B() {}
