@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 01:13:22 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/03 04:06:05 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/12/03 23:24:37 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ void ScalarConverter::Convert(const std::string input)
 			std::cout << "char: Non displayable" << std::endl;
 		else
 			std::cout << "char: '" << static_cast<char>(intNb) << "'" << std::endl;
-		std::cout << "int: " << intNb << std::endl;
+		if (floatNb >= INT_MAX || floatNb <= INT_MIN)
+			std::cout << "int: int > INT_MAX or int < INT_MIN" << std::endl;
+		else
+			std::cout << "int: " << intNb << std::endl;
 		if (floatNb - intNb == 0)
 			std::cout << "float: " << floatNb << ".0f" << std::endl;
 		else
