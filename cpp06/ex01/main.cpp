@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 01:42:27 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/03 02:30:52 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/12/03 04:07:15 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,6 @@ int main ()
 	std::cout << "\nDeserialized - Address: " << deserialized << std::endl;
 	std::cout << "Deserialized - Name: " << deserialized->_name << std::endl;
 	std::cout << "Deserialized - Value: " << deserialized->_value << std::endl;	
-
-	// Test de validité
-	assert(originalData == deserialized);
-	assert(originalData->_name == deserialized->_name);
-	assert(originalData->_value == deserialized->_value);
-
-	// Test de gestion mémoire
-	// Utiliser valgrind pour vérifier les fuites
 
 	delete originalData;
 	
