@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/24 01:11:53 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/01 02:19:25 by dferjul          ###   ########.fr       */
+/*   Created: 2024/12/03 01:42:09 by dferjul           #+#    #+#             */
+/*   Updated: 2024/12/03 02:29:04 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,23 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
-#include <climits>
-#include <cmath>
+#include <cstring>
+#include <stdint.h>
 
-class ScalarConverter
+struct Data
+{
+	std::string	_name;
+	int			_value;
+	Data(std::string name, int value) : _name(name), _value(value) {}
+};
+
+class Serializer
 {
 	private:
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter &);
-		~ScalarConverter();
-		ScalarConverter &operator=(const ScalarConverter &);
+		Serializer();
+		~Serializer();
+		Serializer &operator=(const Serializer &);
 	public:
-		static void Convert(const std::string input);
+		static uintptr_t serialize(Data *ptr);
+		static Data *deserialize(uintptr_t raw);
 };
