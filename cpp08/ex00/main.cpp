@@ -5,27 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 00:03:10 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/04 00:41:15 by dferjul          ###   ########.fr       */
+/*   Created: 2024/12/04 03:18:00 by dferjul           #+#    #+#             */
+/*   Updated: 2024/12/04 03:25:48 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include "easyfind.hpp"
 
-#include "whatever.hpp"
-
-int main( void ) 
+int main(int, char **) 
 {
-	int a = 2;
-	int b = 3;
-	swap( a, b );
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << max( c, d ) << std::endl;
+	std::vector<int> vec;
+	srand(time(NULL));
+	for (int i = 0; i < 10; i++)
+	{
+		const int value = rand() % 10;
+		vec.push_back(value);
+		std::cout << vec[i] << " ";
+	}
+	std::cout << std::endl;
+	try
+	{
+		std::vector<int>::iterator it = easyfind(vec, 5);
+		std::cout << "Found: " << *it << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Not found" << std::endl;
+	}
 	return 0;
 }
