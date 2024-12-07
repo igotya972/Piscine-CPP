@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 03:18:00 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/04 03:24:19 by dferjul          ###   ########.fr       */
+/*   Created: 2024/12/07 06:39:31 by dferjul           #+#    #+#             */
+/*   Updated: 2024/12/07 06:39:39 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
-#include ".hpp"
+#include "Span.hpp"
 
 int main(int, char **) 
 {

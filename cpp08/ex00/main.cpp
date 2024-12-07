@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 03:18:00 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/04 03:25:48 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/12/05 19:41:00 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
 
 int main(int, char **) 
 {
-	std::vector<int> vec;
+	std::vector<int> vec(42);
 	srand(time(NULL));
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 19; i++)
 	{
-		const int value = rand() % 10;
-		vec.push_back(value);
+		vec[i] = rand() % 42;
 		std::cout << vec[i] << " ";
 	}
 	std::cout << std::endl;

@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 03:17:54 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/05 19:33:52 by dferjul          ###   ########.fr       */
+/*   Created: 2024/12/07 06:39:16 by dferjul           #+#    #+#             */
+/*   Updated: 2024/12/07 07:08:11 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Span.hpp"
 
-#include <algorithm>
-#include <iostream>
-#include <vector>
+Span::Span(unsigned int numbers) {};
 
-template <typename T>
-typename T::iterator easyfind(T &container, int n)
-{
-	typename T::iterator it = std::find(container.begin(), container.end(), n);
-	if (it == container.end())
-		throw std::exception();
-	return it;
-}
+Span::~Span() {};
+
+Span::Span(const Span &copy) {};
+
