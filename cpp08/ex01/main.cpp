@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:39:31 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/08 00:39:22 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/12/08 04:21:04 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,35 @@ int main()
 {
 	try
 	{
-		// std::vector<int> add = {1, 3, 45, 42, 56, 9};
-		/* code */
+		std::cout << "\n---------------------------Test-Base-----------------------------" << std::endl;
 		Span sp = Span(5);
-		sp.addNumber(6);
+		sp.addNumber(0);
 		sp.addNumber(3);
-		// sp.addRange(add);
 		sp.addNumber(17);
 		sp.addNumber(9);
-		sp.addNumber(11);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		sp.addNumber(42);
+		std::cout << "shortestSpan: " << sp.shortestSpan() << std::endl;
+		std::cout << "longestSpan: " << sp.longestSpan() << std::endl;
+		std::cout << "\n---------------------------Test-Add-Range-----------------------------" << std::endl;
+		Span randomSpan(10000);
+		std::vector<int> randomNum;
+		srand(time(NULL));
+		for (int i = 0; i < 10; i++)
+		{
+			randomNum.push_back(rand() % 10000);
+		}
+		randomSpan.addRange(randomNum);
+		std::cout << "shortestSpan: " << randomSpan.shortestSpan() << std::endl;
+		std::cout << "longestSpan: " << randomSpan.longestSpan() << std::endl;
+		std::cout << "\n---------------------------Test-Error-----------------------------" << std::endl;
+		Span smallSpan(5);
+		std::vector<int> tooManySpan(10, 42);  // 10 éléments
+		smallSpan.addRange(tooManySpan);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "Error: " << e.what() << '\n';
+		std::cerr << e.what() << '\n';
 	}
-	
+
 	return 0;
 }

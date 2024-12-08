@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:39:22 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/08 00:09:13 by dferjul          ###   ########.fr       */
+/*   Updated: 2024/12/08 03:58:00 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <ctime>
 
 class Span
 {
@@ -34,12 +35,18 @@ public:
 	class NoSpanException : public std::exception
 	{
 		public:
-			virtual const char *what() const throw();
+			virtual const char* what() const throw()
+			{
+				return "Error: cannot calculate span with less than 2 numbers";
+			}
 	};
 	class LimitSpanException : public std::exception
 	{
 		public:
-			virtual const char *what() const throw();
+			virtual const char *what() const throw()
+			{
+            	return "Error: Span is full";
+        	}
 	};
 };
 
