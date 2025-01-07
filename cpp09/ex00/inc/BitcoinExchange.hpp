@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 01:14:33 by dferjul           #+#    #+#             */
-/*   Updated: 2025/01/07 03:24:26 by dferjul          ###   ########.fr       */
+/*   Updated: 2025/01/07 17:14:22 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <iomanip>
 
+// template<typename T>
 class BitcoinExchange
 {
 	private:
@@ -34,7 +35,8 @@ class BitcoinExchange
 		//	methods
 		void loadDatabase(const std::string &fileName);
 		void loadInputFile(const std::string &fileName);
-		// double getExchange(const std::string &date);
-		// parse
 		double stringToDouble(const std::string &str);
+		// parse
+		// void parseDate()
+		bool parseNumbersBtc(double Numbers);
 };
