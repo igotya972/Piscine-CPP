@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 01:14:41 by dferjul           #+#    #+#             */
-/*   Updated: 2024/12/15 06:05:42 by dferjul          ###   ########.fr       */
+/*   Updated: 2025/01/07 03:47:14 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,18 @@ void BitcoinExchange::loadDatabase(const std::string &fileName)
 	file.close();
 }
 
+double BitcoinExchange::stringToDouble(const std::string &str)
+{
+
+	char *endPtr;
+	double value = std::strtod(str.c_str(), &endPtr);
+	// if (value < 0)
+	// {
+	// 	std::cout << "Error: not a positive number." << std::endl;
+	// }
+	return (value);
+}
+
 void BitcoinExchange::loadInputFile(const std::string &fileName)
 {
 	std::ifstream file(fileName.c_str());
@@ -56,6 +68,7 @@ void BitcoinExchange::loadInputFile(const std::string &fileName)
 	}
 	std::string line;
 	std::getline(file, line);
+	std::cout.unsetf(std::ios::showpoint);
 	while (std::getline(file, line))
 	{
 		if (line.empty())
@@ -69,7 +82,7 @@ void BitcoinExchange::loadInputFile(const std::string &fileName)
 		std::string date = line.substr(0, sep);
 		std::string value = line.substr(sep + 1, line.size());
 		
-		value.erase(0, value.find_first_not_of(" \t"));
+		/* value.erase(0, value.find_first_not_of(" \t"));
 		value.erase(value.find_last_not_of(" \t") + 1);
 		
 		char* endPtr;
@@ -78,12 +91,9 @@ void BitcoinExchange::loadInputFile(const std::string &fileName)
 		{
 			std::cout << "Error: not a number." << std::endl;
 			continue;
-		}
-		if (valueV < 0)
-		{
-			std::cout << "Error: not a positive number." << std::endl;
-			continue;
-		}
+		} */
+		double valueV = stringToDouble(value);
+		
 		if (valueV > 1000)
 		{
 			std::cout << "Error: too large a number." << std::endl;
@@ -103,7 +113,8 @@ void BitcoinExchange::loadInputFile(const std::string &fileName)
 				--it;
 			}
 			double result = it->second * valueV;
-			std::cout << "Date: " << date << " => Value: " << result << std::endl;
+			std::cout << "Date: " << date << " => Value: " 
+					<< std::fixed << std::setprecision(2) << result << std::endl;
 		}
 		catch(const std::exception& e)
 		{
