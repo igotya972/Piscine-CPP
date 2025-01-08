@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 01:14:59 by dferjul           #+#    #+#             */
-/*   Updated: 2025/01/07 17:02:26 by dferjul          ###   ########.fr       */
+/*   Updated: 2025/01/08 02:15:18 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int main(int ac, char **av)
 		return (1);
 	}
 	BitcoinExchange btc;
-	(void)ac;
 	(void)av;
 	try
 	{

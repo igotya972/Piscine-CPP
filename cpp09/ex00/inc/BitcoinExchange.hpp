@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 01:14:33 by dferjul           #+#    #+#             */
-/*   Updated: 2025/01/07 17:14:22 by dferjul          ###   ########.fr       */
+/*   Updated: 2025/01/08 03:10:31 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@
 #include <stdlib.h>
 #include <iomanip>
 
-// template<typename T>
+struct Date
+{
+	int		years;
+	int		month;
+	int		day;
+};
+
 class BitcoinExchange
 {
 	private:
@@ -31,12 +37,13 @@ class BitcoinExchange
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &copy);
 		~BitcoinExchange();
-		BitcoinExchange &operator=(const BitcoinExchange &copy);
+		BitcoinExchange	&operator=(const BitcoinExchange &copy);
 		//	methods
-		void loadDatabase(const std::string &fileName);
-		void loadInputFile(const std::string &fileName);
-		double stringToDouble(const std::string &str);
-		// parse
-		// void parseDate()
-		bool parseNumbersBtc(double Numbers);
+		void	loadDatabase(const std::string &fileName);
+		void	loadInputFile(const std::string &fileName);
+		double	stringToDouble(const std::string &str);
+		Date	stringToInt(const std::string &date);
+		// parsing
+		bool	parseDate(const std::string &date);
+		bool	parseNumbersBtc(double Numbers);
 };
