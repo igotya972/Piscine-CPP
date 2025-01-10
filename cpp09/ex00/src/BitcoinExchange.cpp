@@ -22,7 +22,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
  BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
 {
 	if (this != &copy)
-		*this = copy;
+		this->_data = copy._data;
 	return (*this);
 }
 
@@ -34,7 +34,6 @@ void BitcoinExchange::loadDatabase(const std::string &fileName)
 	if (!file.is_open() || fileName.empty())
 	{
 		throw std::runtime_error("Error: could not open database file.");
-		//std::cout << "Error: too large a number." << std::endl;
 	}
 	std::string line;
 	std::getline(file, line);
@@ -42,8 +41,6 @@ void BitcoinExchange::loadDatabase(const std::string &fileName)
 	{
 		_data.insert(std::pair<std::string, double>(line.substr(0, 10), std::atof(line.substr(11, line.size()).c_str())));
 	}
-	// std::map<std::string, double>::const_iterator it;
-
 	file.close();
 }
 
@@ -87,22 +84,26 @@ Date BitcoinExchange::stringToInt(const std::string &date)
 bool BitcoinExchange::parseDate(const std::string &date)
 {
 	Date result = stringToInt(date);
-	// std::cout << "Years: " << result.years << " Month: " << result.month << " Day: " << result.day << std::endl;
-	// std::cerr << "Years: " << result.years << std::endl;
-	if (result.years < 2000 || result.years > 2025)
+	
+	if (result.years < 2009 || result.years > 2025)
 	{
 		std::cout << "Error: invalid year." << std::endl;
 		return false;
 	}
 	if (result.month < 1 || result.month > 12)
 	{
-		// std::cerr << "Month: " << result.month << std::endl;
 		std::cout << "Error: invalid month." << std::endl;
 		return false;
 	}
-	if (result.day < 1 || result.day > 31)
+	
+	const int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	int maxDays = daysInMonth[result.month];
+	
+	// Gestion des années bissextiles pour février
+	if (result.month == 2 && ((result.years % 4 == 0 && result.years % 100 != 0) || result.years % 400 == 0))
+		maxDays = 29;
+	if (result.day < 1 || result.day > maxDays)
 	{
-		// std::cerr << "Days: " << result.day << std::endl;
 		std::cout << "Error: invalid day." << std::endl;
 		return false;
 	}
@@ -112,7 +113,6 @@ bool BitcoinExchange::parseDate(const std::string &date)
 
 double BitcoinExchange::stringToDouble(const std::string &str)
 {
-	// char *endPtr;
 	double value = std::atof(str.c_str());
 	
 	return (value);
@@ -150,8 +150,6 @@ void BitcoinExchange::loadInputFile(const std::string &fileName)
 			continue;
 		if (!parseDate(date))
 			continue;
-		//Date result;
-		// std::cerr << "Days: " << result.day << std::endl;
 		try
 		{
 			std::map<std::string, double>::const_iterator it = _data.lower_bound(date);
