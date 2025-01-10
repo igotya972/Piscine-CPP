@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 01:14:41 by dferjul           #+#    #+#             */
-/*   Updated: 2025/01/08 02:01:13 by dferjul          ###   ########.fr       */
+/*   Updated: 2025/01/08 22:36:42 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void BitcoinExchange::loadDatabase(const std::string &fileName)
 	std::ifstream file(fileName.c_str());
 	if (!file.is_open() || fileName.empty())
 	{
-		std::cout << "Error: too large a number." << std::endl;
+		throw std::runtime_error("Error: could not open database file.");
+		//std::cout << "Error: too large a number." << std::endl;
 	}
 	std::string line;
 	std::getline(file, line);
@@ -41,15 +42,14 @@ void BitcoinExchange::loadDatabase(const std::string &fileName)
 	{
 		_data.insert(std::pair<std::string, double>(line.substr(0, 10), std::atof(line.substr(11, line.size()).c_str())));
 	}
-	std::map<std::string, double>::const_iterator it;
-		// for (it = _data.begin(); it != _data.end(); ++it)
-			// std::cout << "Date: " << it->first << " => Value: " << it->second << std::endl;
+	// std::map<std::string, double>::const_iterator it;
+
 	file.close();
 }
 
 bool BitcoinExchange::parseNumbersBtc(double Numbers)
 {
-	if (Numbers >= 2147483648)
+	if (Numbers > 1000)
 	{
 		std::cout << "Error: too large a number." << std::endl;
 		return 1;
@@ -57,6 +57,11 @@ bool BitcoinExchange::parseNumbersBtc(double Numbers)
 	if (Numbers < 0)
 	{
 		std::cout << "Error: not positif number." << std::endl;
+		return 1;
+	}
+	if (Numbers == 0)
+	{
+		std::cout << "Error: number is 0." << std::endl;
 		return 1;
 	}
 	return 0;
@@ -81,17 +86,18 @@ Date BitcoinExchange::stringToInt(const std::string &date)
 
 bool BitcoinExchange::parseDate(const std::string &date)
 {
-	/* if (date.size() != 10 || date[4] != '-' || date[7] != '-')
-	{
-		std::cout << "Error: invalid date format." << std::endl;
-		return false;
-	} */
 	Date result = stringToInt(date);
 	// std::cout << "Years: " << result.years << " Month: " << result.month << " Day: " << result.day << std::endl;
+	// std::cerr << "Years: " << result.years << std::endl;
 	if (result.years < 2000 || result.years > 2025)
 	{
-		// std::cerr << "Years: " << result.years << std::endl;
 		std::cout << "Error: invalid year." << std::endl;
+		return false;
+	}
+	if (result.month < 1 || result.month > 12)
+	{
+		// std::cerr << "Month: " << result.month << std::endl;
+		std::cout << "Error: invalid month." << std::endl;
 		return false;
 	}
 	if (result.day < 1 || result.day > 31)
@@ -106,8 +112,8 @@ bool BitcoinExchange::parseDate(const std::string &date)
 
 double BitcoinExchange::stringToDouble(const std::string &str)
 {
-	char *endPtr;
-	double value = std::strtod(str.c_str(), &endPtr);
+	// char *endPtr;
+	double value = std::atof(str.c_str());
 	
 	return (value);
 }
@@ -132,8 +138,13 @@ void BitcoinExchange::loadInputFile(const std::string &fileName)
 			continue;
 		}
 		std::string date = line.substr(0, sep);
+		if (date.size() != 11)
+		{
+			std::cout << "Error: invalid date format." << std::endl;
+			continue;
+		}
 		std::string value = line.substr(sep + 1, line.size());
-
+		
 		double valueV = stringToDouble(value);
 		if (parseNumbersBtc(valueV))
 			continue;
@@ -153,8 +164,11 @@ void BitcoinExchange::loadInputFile(const std::string &fileName)
 				--it;
 			}
 			double result = it->second * valueV;
-			std::cout << "Date: " << date << " => Value: " 
-					<< std::fixed << std::setprecision(2) << result << std::endl;
+			std::cout << date << "=> " << valueV << " = ";
+			if (result == static_cast<long long>(result))
+				std::cout << static_cast<long long>(result) << std::endl;
+			else
+				std::cout << result << std::endl;
 		}
 		catch(const std::exception& e)
 		{

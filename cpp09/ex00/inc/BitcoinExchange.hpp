@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 01:14:33 by dferjul           #+#    #+#             */
-/*   Updated: 2025/01/08 03:10:31 by dferjul          ###   ########.fr       */
+/*   Updated: 2025/01/08 22:06:08 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <stdexcept>
 #include <stdlib.h>
 #include <iomanip>
+#include <sstream>
 
 struct Date
 {
