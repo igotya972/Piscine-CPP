@@ -34,17 +34,14 @@ class BitcoinExchange
 	private:
 		std::map<std::string, double> _data;
 	public:
-		//	constructors
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &copy);
 		~BitcoinExchange();
 		BitcoinExchange	&operator=(const BitcoinExchange &copy);
-		//	methods
 		void	loadDatabase(const std::string &fileName);
 		void	loadInputFile(const std::string &fileName);
 		double	stringToDouble(const std::string &str);
 		Date	stringToInt(const std::string &date);
-		// parsing
 		bool	parseDate(const std::string &date);
 		bool	parseNumbersBtc(double Numbers);
 };

@@ -53,7 +53,7 @@ bool BitcoinExchange::parseNumbersBtc(double Numbers)
 	}
 	if (Numbers < 0)
 	{
-		std::cout << "Error: not positif number." << std::endl;
+		std::cout << "Error: not a positive number." << std::endl;
 		return 1;
 	}
 	if (Numbers == 0)
@@ -134,7 +134,7 @@ void BitcoinExchange::loadInputFile(const std::string &fileName)
 		size_t sep = line.find("|");
 		if (sep == std::string::npos)
 		{
-			std::cout << "Error: invalid line" << std::endl;
+			std::cout << "Error: bad input => " << line << std::endl;
 			continue;
 		}
 		std::string date = line.substr(0, sep);
