@@ -1,4 +1,6 @@
 RESET   := \033[0m
+# BLINK   := \033[5;2m
+BLINK   := \033[1;5;37m
 RED     := \033[0;31m
 GREEN   := \033[0;32m
 YELLOW  := \033[0;33m
@@ -12,16 +14,16 @@ OBJS	:=	$(addprefix $(OBJ_DIR)/,$(SRCS:.cpp=.o))
 CC		:=	c++
 CFLAGS	:=	-Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 RM		:=	rm -rf
-NAME	:=	
+NAME	:=	RPN
 
 #---------------------rules---------------------#
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(BLUE)🚀 Lancement de la compilation de $(NAME)...$(RESET)"
+	@echo "$(BLINK)$(BLUE)🚀 Lancement de la compilation de $(NAME)...$(RESET)"
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)✅ $(NAME) compilé avec succès !$(RESET)"
+	@echo "$(BLINK)$(GREEN)✅ $(NAME) compilé avec succès !$(RESET)"
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(@D)
