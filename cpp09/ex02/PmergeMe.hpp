@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 21:30:10 by dferjul           #+#    #+#             */
-/*   Updated: 2025/01/17 01:01:48 by dferjul          ###   ########.fr       */
+/*   Updated: 2025/01/22 18:07:13 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,20 @@
 #include <utility>  // pour std::pair
 #include <cstdlib>
 #include <sstream>
+#include <climits>
 
 class PmergeMe
 {
 private:
-	std::list<int> numbers;
 	std::vector<int> numbersVec;
 	double timeList;
 	double timeVector;
-
+public:
 	void fordJohnsonSort(std::list<int>& lst);
 	void fordJohnsonSortVec(std::vector<int>& vec);
-	std::vector<int> generateJacobsthalSequence(int n);
+	std::vector<int> generateJacobsthalSequenceVec(int n);
 	
 	double getCurrentTime() const;
-
-public:
 	PmergeMe();
 	PmergeMe(const PmergeMe &copy);
 	PmergeMe &operator=(const PmergeMe &copy);
@@ -47,4 +45,5 @@ public:
 	void sort();
 	void display() const;
 	void displayTime() const;
+	bool parseArgs(int argc, char **argv);
 };
