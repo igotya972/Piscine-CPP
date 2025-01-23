@@ -6,15 +6,13 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 21:30:10 by dferjul           #+#    #+#             */
-/*   Updated: 2025/01/22 18:07:13 by dferjul          ###   ########.fr       */
+/*   Updated: 2025/01/23 04:38:13 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include <vector>
-#include <list>
 #include <algorithm>
 #include <ctime>
 #include <iomanip>
@@ -23,17 +21,22 @@
 #include <cstdlib>
 #include <sstream>
 #include <climits>
+#include <vector>
+#include <deque>
 
 class PmergeMe
 {
 private:
 	std::vector<int> numbersVec;
-	double timeList;
+	std::deque<int> numbersDeque;
 	double timeVector;
+	double timeDeque;
+
 public:
-	void fordJohnsonSort(std::list<int>& lst);
 	void fordJohnsonSortVec(std::vector<int>& vec);
 	std::vector<int> generateJacobsthalSequenceVec(int n);
+	void fordJohnsonSortDeque(std::deque<int>& vec);
+	std::deque<int> generateJacobsthalSequenceDeque(int n);
 	
 	double getCurrentTime() const;
 	PmergeMe();
@@ -45,5 +48,4 @@ public:
 	void sort();
 	void display() const;
 	void displayTime() const;
-	bool parseArgs(int argc, char **argv);
 };

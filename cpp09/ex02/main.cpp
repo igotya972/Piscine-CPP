@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 01:14:59 by dferjul           #+#    #+#             */
-/*   Updated: 2025/01/17 01:01:38 by dferjul          ###   ########.fr       */
+/*   Updated: 2025/01/23 04:52:41 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int main(int ac, char **av)
 		return 1;
 	}
 
-	PmergeMe sorter;
+	// Créer l'objet sur le tas plutôt que sur la pile
+	PmergeMe *sorter = new PmergeMe();
 	
 	try 
 	{
@@ -32,19 +33,23 @@ int main(int ac, char **av)
 			
 			if (!(iss >> num) || num < 0 || iss.rdbuf()->in_avail() != 0)
 			{
+				delete sorter;
 				std::cerr << "Error: Invalid argument: " << av[i] << std::endl;
 				return 1;
 			}
-			sorter.addNumber(num);
+			sorter->addNumber(num);
 		}
 
 		// Affichage et tri
-		sorter.display();
-		sorter.sort();
-		sorter.display();
+		sorter->display();
+		sorter->sort();
+		sorter->display();
+		
+		delete sorter;
 	}
 	catch (const std::runtime_error& e)
 	{
+		delete sorter;
 		std::cerr << e.what() << std::endl;
 		return 1;
 	}
