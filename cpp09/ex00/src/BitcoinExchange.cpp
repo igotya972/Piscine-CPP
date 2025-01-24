@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 01:14:41 by dferjul           #+#    #+#             */
-/*   Updated: 2025/01/08 22:36:42 by dferjul          ###   ########.fr       */
+/*   Updated: 2025/01/24 16:33:59 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,16 @@ Date BitcoinExchange::stringToInt(const std::string &date)
 
 bool BitcoinExchange::parseDate(const std::string &date)
 {
+	if (date.size() != 11 || date[4] != '-' || date[7] != '-')
+	{
+		std::cout << "Error: invalid date format." << std::endl;
+		return false;
+	}
 	Date result = stringToInt(date);
 	
 	if (result.years < 2009 || result.years > 2025)
 	{
-		std::cout << "Error: invalid year." << std::endl;
+		std::cout << "Error: invalid year. Bitcoin not exist on " << std::endl;
 		return false;
 	}
 	if (result.month < 1 || result.month > 12)
@@ -99,7 +104,6 @@ bool BitcoinExchange::parseDate(const std::string &date)
 	const int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	int maxDays = daysInMonth[result.month];
 	
-	// Gestion des années bissextiles pour février
 	if (result.month == 2 && ((result.years % 4 == 0 && result.years % 100 != 0) || result.years % 400 == 0))
 		maxDays = 29;
 	if (result.day < 1 || result.day > maxDays)
@@ -122,11 +126,16 @@ void BitcoinExchange::loadInputFile(const std::string &fileName)
 {
 	std::ifstream file(fileName.c_str());
 	if (!file.is_open() || fileName.empty())
-	{
-		throw std::runtime_error("Error: file not found " + fileName);
-	}
+		throw std::runtime_error("Error: could not open file : " + fileName);
 	std::string line;
-	std::getline(file, line); // skip first line
+	std::getline(file, line);
+	if (!line.empty() && line[line.length() - 1] == '\r')
+		line = line.substr(0, line.length() - 1);
+	if (line != "date | value")
+	{
+		throw std::runtime_error("Error: wrong format. : " + line);
+	}
+	std::cout << "date | value" << std::endl;
 	while (std::getline(file, line))
 	{
 		if (line.empty())
@@ -138,17 +147,11 @@ void BitcoinExchange::loadInputFile(const std::string &fileName)
 			continue;
 		}
 		std::string date = line.substr(0, sep);
-		if (date.size() != 11)
-		{
-			std::cout << "Error: invalid date format." << std::endl;
+		if (!parseDate(date))
 			continue;
-		}
-		std::string value = line.substr(sep + 1, line.size());
-		
+		std::string value = line.substr(sep + 1, line.size());	
 		double valueV = stringToDouble(value);
 		if (parseNumbersBtc(valueV))
-			continue;
-		if (!parseDate(date))
 			continue;
 		try
 		{
@@ -170,7 +173,7 @@ void BitcoinExchange::loadInputFile(const std::string &fileName)
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << e.what() << std::endl;
 		}		
 	}
 }

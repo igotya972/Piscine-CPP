@@ -31,4 +31,3 @@ public:
 	int calculate(int a, int b, char op);
 	int evaluate(std::string input);
 };
-

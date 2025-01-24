@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 01:14:59 by dferjul           #+#    #+#             */
-/*   Updated: 2025/01/08 17:49:53 by dferjul          ###   ########.fr       */
+/*   Updated: 2025/01/24 15:08:14 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int main(int ac, char **av)
 		return (1);
 	}
 	BitcoinExchange btc;
-	(void)av;
 	try
 	{
 		btc.loadDatabase(std::string("data/data.csv"));
@@ -31,6 +30,5 @@ int main(int ac, char **av)
 		std::cerr << e.what() << '\n';
 		return (1);
 	}
-	
 	return (0);
 }
